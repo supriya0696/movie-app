@@ -9,7 +9,7 @@ export default class Movies extends React.Component {
     this.state = {
       currentImageIndex: 0,
       isEmptyState: true ,
-      hovered: false,
+      hover: false,
       apiData:[this.props.data]
     };
   }
@@ -48,21 +48,18 @@ export default class Movies extends React.Component {
     console.log(data)
   }
 
-  classes() {
-    for (let i = 0; i < this.props.data.length; i++) {
-      let designClass = "col-3 m-3  btn btn-";
-      return (designClass += this.props.data[i].completed
-        ? "primary"
-        : "warning");
-    }
+  toggleHover() {
+    // this.setState({hover: !this.state.hover})
   }
 
   render() {
+    var linkStyle;
     console.log(this.props);
     const divStyle = {
       // color: "blue",
       width:250,
       height:250,
+      zIndex:4
     };
     const container_box={
       display: "inline-flex"
@@ -73,31 +70,25 @@ export default class Movies extends React.Component {
 
     }
 
-    const carousal= {
-display:"flex"
+    if (this.state.hover) {
+      linkStyle = {color: '#ed1212',cursor: 'pointer'}
+    } else {
+      linkStyle = {color: '#000'}
     }
     return (
-      <>
-        <div>
-              
-              {this.props.data.components[1].items.map(item => (
-                <div className="container slide">
-                  <div className="carousel" >
-                    <div className="card" style={divStyle} >
-                      <img className="m-3" style={divStyle} src={item.imageUrl} onClick={ onImageClick } 
-                        onMouseOut={() => this.setState({hovered: false})} 
-                        onMouseOver={() => this.setState({hovered: true})}
-                        onMouseEnter={() => this.setState({hovered: false})}
-                        style={{transform: `${this.state.hovered ? 'scale(1.25,1.25)' : ''}`}}/>
-                      <div className="" >{item.title}</div>
-                      <div className="" key={item.id} onClick={() => this.props.onMoviesClick(item)}></div>                       
-                    </div>
-                    <ClickBtn data = {item} addTrip={this.triggerAddTripState} />
-                  {/* </div>  */}
+      <> 
+       <div className="container">
+                  <div className="carousel"  >
+                  {this.props.data.components[1].items.map(item => (                
+                      <img className="card" style={linkStyle} src={item.imageUrl} onClick={ onImageClick } 
+                       onMouseEnter={this.toggleHover}
+                       onMouseLeave={this.toggleHover}  
+                        />
+                     
+                     ))}  
+                    {/* <ClickBtn data = {item} addTrip={this.triggerAddTripState} /> */}
                   </div>                
-                </div>                
-              ))}
-        </div>
+                </div>   
       </>
     );
   }

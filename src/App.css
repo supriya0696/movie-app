@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.card{
+  width: 250px;
+  margin: 10px;
+}
+.card:hover{
+  transform: scale(1.5);
+  position: relative;;
+  z-index: 2;
+
+}
+.carousel{
+  display: flex;
+}

@@ -17,10 +17,7 @@ const HorizontalMenu = (props)=> {
     return (
       <div className="container" style={style1}>
         <div className="card">{props.data.map(item => (
-
-          // item
-          // <img src={item.imageUrl} />{}
-        <div className="card"></div>
+          console.log(item)
         ))}
         </div>
       {/* <div className="bg-success border border border-primary my-5" style={style2}> */}

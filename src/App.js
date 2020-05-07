@@ -103,10 +103,10 @@ class App extends React.Component {
                     /* <Menu data={this.state.menuItems} onClick={onMenuClick} />
                            <Home title={this.state.title}/> */
                 }
-
+                <Movies data = { this.state.movieData } onClick = { onMoviesClick }/> 
                 <HorizontalMenu data = { information } onClick = { onHomeMenuClick }/> { MainComponent } 
                 <Table data = { this.state.tableDatas } onClickTable = { onClickTable } />
-                 <Movies data = { this.state.movieData } onClick = { onMoviesClick }/> 
+                
                  </div>
             );
         }
