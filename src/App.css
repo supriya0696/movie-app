@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background:black;
 }
 
 .App-logo {
@@ -49,4 +50,8 @@
 }
 .carousel{
   display: flex;
+}
+.synopsis{
+  color: wheat;
+
 }

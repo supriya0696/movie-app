@@ -96,15 +96,13 @@ class App extends React.Component {
         }
         if (this.state.tableDatas) {
             return (
-
                 <div className = "App">
-
                 <div > APP TITLE </div> {
                     /* <Menu data={this.state.menuItems} onClick={onMenuClick} />
                            <Home title={this.state.title}/> */
                 }
                 <Movies data = { this.state.movieData } onClick = { onMoviesClick }/> 
-                <HorizontalMenu data = { information } onClick = { onHomeMenuClick }/> { MainComponent } 
+                {/* <HorizontalMenu data = { information } onClick = { onHomeMenuClick }/> { MainComponent }  */}
                 <Table data = { this.state.tableDatas } onClickTable = { onClickTable } />
                 
                  </div>
