@@ -6,16 +6,16 @@ const HorizontalMenu = (props)=> {
     height:500,
     background: "#111111"
   }
-    console.log(props)
+
+    console.log(props.data)
     return (
       <div className="container" style={style1}>
         <div className="carousel">
-          {props.data.map(item => (
-          
-          <div className="synopsis">{item.synopsis}</div>
-          // <img src={item.imageUrl} /> 
-                    
-          ))}  } 
+          <div className="synopsis">{props.data.title}
+          <img className="imageResize" src={props.data.imageUrl}/>
+          </div>
+          <div className="synopsis">{props.data.synopsis}</div>
+        
         </div>
     </div>
     ); 

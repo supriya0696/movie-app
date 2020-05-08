@@ -20,6 +20,8 @@ class App extends React.Component {
                 tableDatas: [],
                 showComponent: '',
                 movieData: movieData,
+                imageDatToBeSent: '',
+
 
             }
             // this.setState({movies:[movieData]})
@@ -58,8 +60,7 @@ class App extends React.Component {
         }
 
         const onClickTable = (item) => {
-            console.log(item)
-
+            console.log(item);
             for (let i = 0; i < this.state.tableDatas.length; i++) {
                 if (this.state.tableDatas[i].id === (item.id - 1)) {
                     var newState = this.state.tableDatas
@@ -67,6 +68,11 @@ class App extends React.Component {
                 }
             }
             this.setState({ tableDatas: newState })
+        }
+
+        const onClickOfImage = (item) => {
+            console.log(item);
+            this.setState({imageDatToBeSent : item})
         }
 
         const onMoviesClick = () => {
@@ -101,8 +107,8 @@ class App extends React.Component {
                     /* <Menu data={this.state.menuItems} onClick={onMenuClick} />
                            <Home title={this.state.title}/> */
                 }
-                <Movies data = { this.state.movieData } onClick = { onMoviesClick }/> 
-                {/* <HorizontalMenu data = { information } onClick = { onHomeMenuClick }/> { MainComponent }  */}
+                <Movies data = { this.state.movieData } onClickOfImage = { onClickOfImage }/> 
+                <HorizontalMenu data = {this.state.imageDatToBeSent } /> { MainComponent } 
                 <Table data = { this.state.tableDatas } onClickTable = { onClickTable } />
                 
                  </div>
