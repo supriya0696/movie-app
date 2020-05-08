@@ -1,6 +1,8 @@
 .App {
   text-align: center;
-  background:black;
+  background: black;
+  color: white;
+  margin: 10px;
 }
 
 .App-logo {
@@ -38,26 +40,30 @@
   }
 }
 
-.card{
+.card {
   width: 250px;
   margin: 10px;
 }
-.card:hover{
+.card:hover {
   transform: scale(1.5);
-  position: relative;;
+  position: relative;
   z-index: 2;
-  border-style:solid;
-
+  border-style: solid;
 }
-.carousel{
+.carousel {
   display: flex;
   margin: 30px;
 }
-.synopsis{
+.synopsis {
   color: wheat;
   margin-top: 30px;
-
 }
-.imageResize{
-  width:300px;
+.imageResize {
+  width: 300px;
+}
+.title {
+  color: white;
+}
+.tilteApp {
+  margin-top: 15px;
 }
