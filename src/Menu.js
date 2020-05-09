@@ -7,12 +7,21 @@ const Menu = (props) => {
     <>
       <div className="container">
         <div className="carousel">
-          {props.data.map((item) => (
-            <Link to="/menu" className="menu">
-              <b>{item}</b>
-            </Link>
-            // onClick={() => props.onClick(item)}
-          ))}
+          {/* {props.data.map((item) => ( */}
+          <Link to="/home" className="menu">
+            <b>{props.data[0]}</b>
+          </Link>
+          <Link to="/movie" className="menu">
+            <b>{props.data[1]}</b>
+          </Link>
+          <Link to="/channel" className="menu">
+            <b>{props.data[2]}</b>
+          </Link>
+          <Link to="/About" className="menu">
+            <b>{props.data[3]}</b>
+          </Link>
+          {/* // onClick={() => props.onClick(item)} */}
+          {/* ))} */}
         </div>
       </div>
     </>
