@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import HomeMenu from "./HomeMenu";
 import AboutMenu from "./AboutMenu";
@@ -6,12 +7,17 @@ import HorizontalMenu from "./NavBar";
 import ContactMenu from "./ContactMenu";
 import Table from "./Table";
 import Movies from "./Movies";
+import Home from "./Home";
+// import About from './AboutMenu'
 import movieData from "./data/top5MoviesAssessement.json";
+import Menu from "./Menu";
 
 class App extends React.Component {
   constructor() {
     super();
+
     this.state = {
+      menuItems: ["Home", "Movie", "Channel", "About", "Setting"],
       tableDatas: [],
       showComponent: "",
       movieData,
@@ -21,6 +27,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.setState({ movieData });
+    // this.setState({menuItems})
   }
 
   componentDidUpdate() {
@@ -50,6 +57,11 @@ class App extends React.Component {
       this.setState({ imageDatToBeSent: item });
     };
 
+    const onMenuClick = () => {
+      // let menus=['Home' , 'Movie' , 'Channel' , 'About' , 'Setting'];
+      // this.setState({menuItems})
+    };
+
     let MainComponent = null;
     switch (this.state.showComponent) {
       case "Home":
@@ -73,8 +85,35 @@ class App extends React.Component {
           <div className="tilteApp">
             <b> MY SUPER YOUTUBE APP</b>
           </div>{" "}
-          {/* <Menu data={this.state.menuItems} onClick={onMenuClick} />
-                           <Home title={this.state.title}/> */}
+          <Router>
+            <div className="App">
+              <Menu data={this.state.menuItems} onMenuClick={onMenuClick}>
+                <Switch>
+                  <Route exact path="/" component={Home}>
+                    Home
+                  </Route>
+                  <Route exact path="/about" component={AboutMenu}>
+                    AboutMenu
+                  </Route>
+                  <Route exact path="/contact" component={ContactMenu}>
+                    Contact
+                  </Route>
+                </Switch>
+              </Menu>
+              {/* <ul className="App-header"> 
+              <li> 
+                <Link to="/">Home</Link> 
+              </li> 
+              <li> 
+                <Link to="/about">About Us</Link> 
+              </li> 
+              <li> 
+                <Link to="/contact">Contact Us</Link> 
+              </li> 
+            </ul> */}
+            </div>
+          </Router>
+          {/* <Home title={this.state.title}/> */}
           <Movies data={this.state.movieData} onClickOfImage={onClickOfImage} />
           <HorizontalMenu data={this.state.imageDatToBeSent} /> {MainComponent}
           <Table data={this.state.tableDatas} onClickTable={onClickTable} />

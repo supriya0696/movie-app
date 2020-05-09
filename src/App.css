@@ -45,7 +45,7 @@
   margin: 10px;
 }
 .card:hover {
-  transform: scale(1.5);
+  transform: scale(1.25);
   position: relative;
   z-index: 2;
   border-style: solid;
@@ -66,4 +66,12 @@
 }
 .tilteApp {
   margin-top: 15px;
+}
+
+.menu {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.menu:hover {
+  color: #1f80e0;
 }

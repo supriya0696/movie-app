@@ -1,14 +1,22 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
+const Menu = (props) => {
+  console.log(props.data);
+  return (
+    <>
+      <div className="container">
+        <div className="carousel">
+          {props.data.map((item) => (
+            <Link to="/menu" className="menu">
+              <b>{item}</b>
+            </Link>
+            // onClick={() => props.onClick(item)}
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
 
-const Menu = (props)=> {
-    
-    return (
-        <>
-        {props.data.map(item=><div onClick={()=>props.onClick(item)}>{item}</div>)}      
-        </>
-    );
-  }
-  
-  export default Menu;
-  
+export default Menu;
